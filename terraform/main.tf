@@ -121,6 +121,7 @@ resource "aws_cloudfront_distribution" "app" {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = "S3-${aws_s3_bucket.app_bucket.id}"
+    viewer_protocol_policy = "redirect-to-https"
 
     forwarded_values {
       query_string = false

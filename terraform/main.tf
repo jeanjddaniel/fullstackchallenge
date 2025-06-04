@@ -112,7 +112,7 @@ resource "aws_cloudfront_distribution" "app" {
   }
 
   logging_config {
-    bucket          = aws_s3_bucket.app_bucket.bucket_domain_name
+    bucket          = aws_s3_bucket.log_bucket.bucket_domain_name
     prefix          = "cloudfront-logs/"
   }
 

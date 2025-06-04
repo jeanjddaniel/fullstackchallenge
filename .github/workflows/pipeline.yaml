@@ -100,7 +100,7 @@ jobs:
         working-directory: terraform
 
       - name: terraform apply
-        run: terraform apply -auto-approve -var="env=${{github.ref_name}}"
+        run: terraform apply -auto-approve -var="env=${{ github.ref_name }}"
         working-directory: terraform
 
       - name: Set up Node.js

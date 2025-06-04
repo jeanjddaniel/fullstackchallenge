@@ -26,19 +26,19 @@ jobs:
 
           case "$TARGET" in
             devel)
-              if[[ "$SOURCE" != feature/* && "$SOURCE" != bugfix/* ]]; then
+              if [[ "$SOURCE" != feature/* && "$SOURCE" != bugfix/* ]]; then
                 echo "Only feature and bugfix branchs can open PR for devel"
                 exit 1
               fi
               ;;
             stage)
-              if[[ "$SOURCE" != devel ]]; then
+              if [[ "$SOURCE" != devel ]]; then
                 echo "Only devel branch can open PR for stage"
                 exit 1
               fi
               ;;
             prod)
-              if[[ "$SOURCE" != stage ]]; then
+              if [[ "$SOURCE" != stage ]]; then
                 echo "Only stage branch can open PR for prod"
                 exit 1
               fi

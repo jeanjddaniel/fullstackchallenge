@@ -95,21 +95,6 @@ jobs:
         run: terraform init -backend-config="key=${GITHUB_REF_NAME}/terraform.tfstate"
         working-directory: terraform
 
-      - name: terraform validate
-        run: terraform validate
+      - name: terraform destroy
+        run: terraform destroy
         working-directory: terraform
-
-      - name: terraform apply
-        run: terraform apply -auto-approve -var="env=${{ github.ref_name }}"
-        working-directory: terraform
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "15"
-
-      - name: Upload to S3
-        run: |
-          npm install
-          npm run build
-          aws s3 sync build/ s3://${{ github.ref_name }}-app-bucket-fullstack-jean --delete

@@ -96,5 +96,5 @@ jobs:
         working-directory: terraform
 
       - name: terraform destroy
-        run: terraform destroy -var="env=${{ github.ref_name }}"
+        run: terraform destroy -auto-approve -var="env=${{ github.ref_name }}"
         working-directory: terraform
